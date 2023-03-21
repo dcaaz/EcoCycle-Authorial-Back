@@ -17,5 +17,5 @@ Quero deixar registrado que a ideia central não é criticar o sistema público 
 - Axios
 - Typescript
 - Dotenv
-- Express
 - Joi
+- Express
