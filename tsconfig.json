@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "outDir": "dist",
+      "esModuleInterop": true, //entender diferentes tipos de importação
+      "module": "es6",
+      "moduleResolution": "Node",
+      "baseUrl": "src",
+    },
+    "ts-node": {
+      "esm": true
+    },
+  }
