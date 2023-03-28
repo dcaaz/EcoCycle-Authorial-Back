@@ -1,7 +1,8 @@
-import prisma from "config/database";
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
 
 async function main() {
-   /*  let user = await prisma.user
+   let user = await prisma.user.findFirst();
     if (!user) {
     await prisma.user.create({
             data: {
@@ -9,12 +10,12 @@ async function main() {
                 password: 'testuserpassword',
             },
         }) 
-    }*/
+    }
 }
 
 main()
     .then(() => {
-        console.log("Successful registration")
+        console.log("Successful registration");
     })
     .catch((e) => {
         console.error(e);
