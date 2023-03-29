@@ -13,6 +13,6 @@ app
     .use(cors())
     .use(json()) //receber req do cliente no formato json
     .get("/health", (_req, res) => res.send("OK!"))
-    .use("/signup", userRouter); 
+    .use("/", userRouter);
 
 export default app;

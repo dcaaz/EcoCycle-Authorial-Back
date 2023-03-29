@@ -1,25 +1,36 @@
-import userRepository from "../repositories/user.repository";
+import userRepository from "../repositories/user-repository";
+import { conflictError, unauthorizedError } from "../errors";
+import bcrypt from "bcrypt";
 
 async function createUser(email: string, password: string) {
-    try {
-        const userExist = await userRepository.findeUser(email);
+    const userExist = await userRepository.findeUser(email);
 
-        if (userExist != null) {
-            throw new Error("Usuário existente");
-        }
-
-        const createNewUser = await userRepository.createUser(email, password);
-
-        return createNewUser;
-
-    } catch (error) {
-        console.log("createUserService", error);
-        return error;
+    if (userExist != null) {
+        throw conflictError();
     }
+
+    const hashedPassword = await bcrypt.hash(password, 12); //DO
+
+    const createNewUser = await userRepository.createUser(email, password);
+
+    return createNewUser;
+}
+
+async function createSession(email: string, password: string) {
+    const userExist = await userRepository.findeUser(email);
+
+    if(!userExist){
+        throw unauthorizedError();
+    }
+
+    const validePassword = await 
+
+
 }
 
 const userService = {
-    createUser
+    createUser,
+    createSession
 }
 
 export default userService;

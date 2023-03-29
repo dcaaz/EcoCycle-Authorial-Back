@@ -8,11 +8,11 @@ async function findeUser(email: string){
   }) 
 }
 
-async function createUser(email: string, password: string){
+async function createUser(email: string, hashedPassword: string){
   return prisma.user.create({
     data: {
         email,
-        password
+        password: hashedPassword
     }
   })  
 }
