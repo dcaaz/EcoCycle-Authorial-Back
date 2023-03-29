@@ -17,9 +17,19 @@ async function createUser(email: string, hashedPassword: string){
   })  
 }
 
+async function createSessionUser(userId: number, userToken: string) {
+  return prisma.session.create({
+    data: {
+        userid: userId,
+        token: userToken
+    }
+  })  
+}
+
 const userRepository = {
     createUser,
-    findeUser
+    findeUser, 
+    createSessionUser
 }
 
 export default userRepository;

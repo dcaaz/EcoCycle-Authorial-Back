@@ -13,13 +13,14 @@ Quero deixar registrado que a ideia central não é criticar o sistema público 
 
 ## `Tecnologias Usadas`
 
+- Typescript
 - Node
 - Axios
-- Typescript
 - Dotenv
-- Joi
 - Express
 - Cors
 - Prisma
+- Joi
 - Brazilian-utils
 - Bcrypt
+- Jsonwebtoken
