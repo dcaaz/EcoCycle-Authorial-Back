@@ -39,10 +39,11 @@ export async function userPostSignIn(req: Request, res: Response) {
 }
 
 export async function userPostAdress(req: Request, res: Response) {
-  const { adressUser } = req.body;
+  const data  = req.body;
+  console.log("cheguei no userPostAdress")
 
   try {
-    const data = await userService.createAdress(adressUser)
+    const result = await userService.createAdress(data)
 
     return res.status(200);
   } catch (error) {

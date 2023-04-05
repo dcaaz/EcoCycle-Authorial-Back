@@ -26,6 +26,7 @@ async function createSessionUser(userId: number, userToken: string) {
   })  
 }
 
+
 const userRepository = {
     createUser,
     findeUser, 

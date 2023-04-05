@@ -1,8 +1,7 @@
 import express, { json } from "express";
 import cors from 'cors';
 import dotenv from 'dotenv';
-/* import { userRouter } from "./routers/user-router" */
-import { userRouter } from "./routers";
+import { adressRouter, userRouter } from "./routers";
 
 //importar rotas
 
@@ -13,6 +12,7 @@ app
     .use(cors())
     .use(json()) //receber req do cliente no formato json
     .get("/health", (_req, res) => res.send("OK!"))
-    .use("/", userRouter);
+    .use("/", userRouter)
+    .use("/adress", adressRouter);
 
 export default app;
