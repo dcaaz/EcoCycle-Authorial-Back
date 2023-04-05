@@ -39,9 +39,13 @@ async function createSession(email: string, password: string) {
     return (token.token);
 }
 
+async function createAdress(adressUser: string){
+
+}
 const userService = {
     createUser,
-    createSession
+    createSession, 
+    createAdress
 }
 
 export default userService;

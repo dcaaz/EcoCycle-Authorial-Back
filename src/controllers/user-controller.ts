@@ -37,3 +37,15 @@ export async function userPostSignIn(req: Request, res: Response) {
     return res.status(500).send(error);
   }
 }
+
+export async function userPostAdress(req: Request, res: Response) {
+  const { adressUser } = req.body;
+
+  try {
+    const data = await userService.createAdress(adressUser)
+
+    return res.status(200);
+  } catch (error) {
+    return res.status(500).send(error);
+  }
+}
