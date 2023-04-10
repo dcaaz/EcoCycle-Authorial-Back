@@ -12,3 +12,17 @@ export type User = {
     createdAt: Date
     updatedAt: Date
 }
+
+export type Adress = {
+    userid: number,
+    name: string,
+    cep: number,
+    street: string,
+    number: number,
+    complement: string,
+    reference: string,
+    city: string,
+    state: string,
+    neighborhood: string,
+    profile: string
+}

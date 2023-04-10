@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 async function createUser(email: string, password: string) {
-    const userExist = await userRepository.findeUser(email);
+    const userExist = await userRepository.findeUserByEmail(email);
 
     if (userExist != null) {
         throw conflictError();
@@ -18,15 +18,15 @@ async function createUser(email: string, password: string) {
 }
 
 async function createSession(email: string, password: string) {
-    const user = await userRepository.findeUser(email);
+    const user = await userRepository.findeUserByEmail(email);
 
-    if(!user){
+    if (!user) {
         throw forbidden();
     }
 
     const validePassword = await bcrypt.compare(password, user.password);
 
-    if(validePassword != true){
+    if (validePassword != true) {
         throw unauthorizedError();
     }
 
@@ -34,19 +34,14 @@ async function createSession(email: string, password: string) {
 
     const userToken = jwt.sign({ userId }, process.env.JWT_SECRET);
 
-    const token = await userRepository.createSessionUser(userId, userToken);
+    const { token } = await userRepository.createSessionUser(userId, userToken);
 
-    return (token.token);
-}
-
-async function createAdress(data: string){
-
+    return ({token, userId});
 }
 
 const userService = {
     createUser,
-    createSession, 
-    createAdress
+    createSession
 }
 
 export default userService;
