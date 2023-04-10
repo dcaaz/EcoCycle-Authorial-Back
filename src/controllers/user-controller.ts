@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import userService from "../services/user-service";
-import adressService from "@/services/adress-servise";
+import adressService from "@/services/adress-service";
 
 export async function userPostSignUp(req: Request, res: Response) {
   const { email, password } = req.body;
@@ -27,11 +27,9 @@ export async function userPostSignIn(req: Request, res: Response) {
   try {
     const data = await userService.createSession(email, password);
 
-    console.log("data", data);
+    const adresExist = await adressService.findUserAdress(data.userId);
 
-    //const adress = await adressService
-
-    return res.status(200).send(data.token);
+    return res.status(200).send({token: data.token, adress: adresExist});
 
   } catch (error) {
 
