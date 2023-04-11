@@ -3,9 +3,8 @@ import { Adress } from "@/protocols";
 import adressRepository from "@/repositories/adress-repository";
 
 async function createAdress(adress: Adress, userid: number) {
-
     const adressUser = await adressRepository.createAdress(adress, userid);
-
+    return adressUser
 }
 
 async function findUserAdress(userid: number) {

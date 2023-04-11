@@ -8,7 +8,7 @@ export async function userPostAdress(req: AuthenticatedRequest & Request, res: R
 
   try {
     await adressService.createAdress(adress, userId);
-    return res.status(201);
+    return res.status(201).send("Criado");
   } catch (error) {
     return res.status(500).send(error);
   }

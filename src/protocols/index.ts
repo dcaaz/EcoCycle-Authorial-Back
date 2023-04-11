@@ -24,5 +24,5 @@ export type Adress = {
     city: string,
     state: string,
     neighborhood: string,
-    profile: string
+    profile: boolean
 }
