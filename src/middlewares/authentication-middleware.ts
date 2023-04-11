@@ -31,7 +31,6 @@ export async function authenticateToken(req: AuthenticatedRequest, res: Response
 
         return next();
     } catch (err) {
-        console.log(err);
         return res.sendStatus(500);
     }
 }

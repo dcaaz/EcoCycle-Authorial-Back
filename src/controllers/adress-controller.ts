@@ -14,7 +14,7 @@ export async function userPostAdress(req: AuthenticatedRequest & Request, res: R
   }
 }
 
-export async function allAdres(req: Request, res: Response) {
+export async function cepsUsers(req: Request, res: Response) {
 
   try {
   

@@ -17,7 +17,6 @@ export async function userValidation(req: Request, res: Response, next: NextFunc
         }
         
     }catch(err){
-        console.log("err userValidation", err.message);
         res.status(500).send('Server not running');
     }
 }

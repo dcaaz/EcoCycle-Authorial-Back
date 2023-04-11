@@ -13,6 +13,7 @@ async function findAllCeps() {
   return prisma.adress.findMany({
     select: {
       cep: true,
+      name: true
     }
   })
 }

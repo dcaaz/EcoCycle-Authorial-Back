@@ -21,9 +21,6 @@ async function findUserAdress(userid: number) {
 
 async function findAllAdress() {
     const allAdress = await adressRepository.findAllCeps();
-
-    console.log("allAdres", allAdress);
-
     return allAdress;
 }
 
