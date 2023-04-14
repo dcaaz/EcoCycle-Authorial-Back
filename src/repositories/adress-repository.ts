@@ -5,6 +5,12 @@ async function findAdress(userid: number) {
   return prisma.adress.findFirst({
     where: {
       userid
+    },
+    select: {
+      cep: true,
+      name: true,
+      neighborhood: true,
+      phone: true
     }
   })
 }
@@ -31,6 +37,7 @@ async function createAdress(adress: Adress, userid: number) {
       city: adress.city,
       state: adress.state,
       neighborhood: adress.neighborhood,
+      phone: adress.phone,
       profile: adress.profile
     }
   })

@@ -1,4 +1,4 @@
-import { conflictError, unauthorizedError, forbidden } from "@/errors";
+import { conflictError, unauthorizedError, forbidden, notFoundError } from "@/errors";
 import { Adress } from "@/protocols";
 import adressRepository from "@/repositories/adress-repository";
 
@@ -18,9 +18,16 @@ async function findUserAdress(userid: number) {
     return true;
 }
 
-async function findAllAdress() {
-    const allAdress = await adressRepository.findAllCeps();
-    return allAdress;
+async function findAllAdress(userid: number) {
+    const user = await adressRepository.findAdress(userid);
+    
+    const users = await adressRepository.findAllCeps();
+
+    if(!user || !users){
+        throw notFoundError();
+    }
+
+    return ({User: user, Users: users});
 }
 
 const adressService = {

@@ -14,15 +14,19 @@ export async function userPostAdress(req: AuthenticatedRequest & Request, res: R
   }
 }
 
-export async function cepsUsers(req: Request, res: Response) {
+export async function cepsUsers(req: AuthenticatedRequest & Request, res: Response) {
+  const userId = req.userId;
 
   try {
-  
-    const allAdres = await adressService.findAllAdress();
+
+    const allAdres = await adressService.findAllAdress(userId);
 
     return res.status(200).send(allAdres);
 
   } catch (error) {
+    if (error.name === "NotFoundError") {
+      return res.status(404).send(error.message);
+    }
     return res.status(500).send(error);
   }
 }
