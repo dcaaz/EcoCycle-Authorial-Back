@@ -5,6 +5,7 @@ import * as jwt from "jsonwebtoken";
 
 export async function authenticateToken(req: AuthenticatedRequest, res: Response, next: NextFunction) {
     const { authorization } = req.headers;
+    console.log("Passei auth");
 
     const token = authorization?.replace("Bearer ", "");
 
