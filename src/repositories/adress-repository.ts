@@ -7,10 +7,7 @@ async function findAdress(userid: number) {
       userid
     },
     select: {
-      cep: true,
-      name: true,
-      neighborhood: true,
-      phone: true
+      cep: true
     }
   })
 }
@@ -19,7 +16,10 @@ async function findAllCeps() {
   return prisma.adress.findMany({
     select: {
       cep: true,
-      name: true
+      name: true,
+      neighborhood: true,
+      phone: true,
+      profile: true
     }
   })
 }
