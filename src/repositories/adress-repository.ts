@@ -1,4 +1,4 @@
-import { Adress } from "@/protocols";
+import { Adress } from "../protocols";
 import prisma from "../config/database";
 
 async function findAdress(userid: number) {

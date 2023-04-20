@@ -1,11 +1,9 @@
-import { conflictError, unauthorizedError, forbidden, notFoundError } from "@/errors";
-import { Adress } from "@/protocols";
-import adressRepository from "@/repositories/adress-repository";
+import { conflictError, unauthorizedError, forbidden, notFoundError } from "../errors";
+import { Adress } from "../protocols";
+import adressRepository from "../repositories/adress-repository";
 
 async function createAdress(adress: Adress, userid: number) {
-    console.log("entrei na function createAdress")
     const adressUser = await adressRepository.createAdress(adress, userid);
-    console.log("AdressUser", adressUser);
     return adressUser
 }
 

@@ -1,16 +1,18 @@
 import { Request, Response } from "express";
 import userService from "../services/user-service";
-import adressService from "@/services/adress-service";
+import adressService from "../services/adress-service";
 
 export async function userPostSignUp(req: Request, res: Response) {
   const { email, password } = req.body;
-
+  console.log("cheguei aqui");
   try {
 
     await userService.createUser(email, password);
     return res.status(201).send("User Created");
 
   } catch (error) {
+
+    console.log("error", error);
 
     if (error.name === "ConflictError") {
       return res.status(409).send("Usuário já cadastrado!");

@@ -1,17 +1,15 @@
 import { Request, Response } from "express";
-import { AuthenticatedRequest } from "@/middlewares/authentication-middleware";
-import adressService from "@/services/adress-service";
+import { AuthenticatedRequest } from "../middlewares/authentication-middleware";
+import adressService from "../services/adress-service";
 
 export async function userPostAdress(req: AuthenticatedRequest & Request, res: Response) {
   const adress = req.body;
   const userId = req.userId;
-  console.log("body", adress);
 
   try {
     await adressService.createAdress(adress, userId);
     return res.status(201).send("Criado");
   } catch (error) {
-    console.log("error", error);
     return res.status(500).send(error);
   }
 }

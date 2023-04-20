@@ -1,5 +1,5 @@
 import userRepository from "../repositories/user-repository";
-import { conflictError, unauthorizedError, forbidden } from "@/errors";
+import { conflictError, unauthorizedError, forbidden } from "../errors";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -9,6 +9,8 @@ async function createUser(email: string, password: string) {
     if (userExist != null) {
         throw conflictError();
     }
+
+    console.log("cheguei aqui");
 
     const hashedPassword = await bcrypt.hash(password, 12); //DO
 

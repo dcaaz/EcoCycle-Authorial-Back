@@ -1,11 +1,10 @@
-import prisma from "@/config/database";
+import prisma from "../config/database";
 import { NextFunction } from "express";
 import { Response, Request } from "express";
 import * as jwt from "jsonwebtoken";
 
 export async function authenticateToken(req: AuthenticatedRequest, res: Response, next: NextFunction) {
     const { authorization } = req.headers;
-    console.log("Passei auth");
 
     const token = authorization?.replace("Bearer ", "");
 

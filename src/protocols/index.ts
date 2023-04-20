@@ -1,5 +1,3 @@
-import { Request } from "express";
-
 export type ApplicationError = {
     name: string;
     message: string;

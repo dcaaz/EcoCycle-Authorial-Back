@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { cepsUsers, userPostAdress } from "@/controllers/adress-controller";
-import { authenticateToken } from "@/middlewares/authentication-middleware";
+import { cepsUsers, userPostAdress } from "../controllers/adress-controller";
+import { authenticateToken } from "../middlewares/authentication-middleware";
 
 const adressRouter = Router();
 
