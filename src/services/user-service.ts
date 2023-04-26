@@ -10,9 +10,7 @@ async function createUser(email: string, password: string) {
         throw conflictError();
     }
 
-    console.log("cheguei aqui");
-
-    const hashedPassword = await bcrypt.hash(password, 12); //DO
+    const hashedPassword = await bcrypt.hash(password, 12);
 
     const createNewUser = await userRepository.createUser(email, hashedPassword);
 

@@ -8,13 +8,11 @@ const user_service_1 = __importDefault(require("../services/user-service"));
 const adress_service_1 = __importDefault(require("../services/adress-service"));
 async function userPostSignUp(req, res) {
     const { email, password } = req.body;
-    console.log("cheguei aqui");
     try {
         await user_service_1.default.createUser(email, password);
         return res.status(201).send("User Created");
     }
     catch (error) {
-        console.log("error", error);
         if (error.name === "ConflictError") {
             return res.status(409).send("Usuário já cadastrado!");
         }

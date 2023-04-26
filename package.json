@@ -7,7 +7,7 @@
     "dev": "nodemon --watch 'src/' --exec 'ts-node -r tsconfig-paths/register ./src/app.ts' -e ts",
     "prisma:seed": "npx prisma db seed",
     "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "ts-node -r tsconfig-paths/register ./src/app.ts"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"

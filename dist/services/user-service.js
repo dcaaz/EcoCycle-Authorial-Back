@@ -12,8 +12,7 @@ async function createUser(email, password) {
     if (userExist != null) {
         throw (0, errors_1.conflictError)();
     }
-    console.log("cheguei aqui");
-    const hashedPassword = await bcrypt_1.default.hash(password, 12); //DO
+    const hashedPassword = await bcrypt_1.default.hash(password, 12);
     const createNewUser = await user_repository_1.default.createUser(email, hashedPassword);
     return createNewUser;
 }
