@@ -1,5 +1,4 @@
 services:
-
   db:
     image: postgres
     container_name: db
@@ -23,9 +22,11 @@ services:
     env_file:
       - .env
     working_dir: /usr/src/recyclable
+    command: sh -c "npm run prisma && npm run dev"
+
     depends_on:
       - db
-    
+
 networks:
   eco-network:
     name: eco-network
