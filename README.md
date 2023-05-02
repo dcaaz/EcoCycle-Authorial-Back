@@ -25,3 +25,6 @@ Quero deixar registrado que a ideia central não é criticar o sistema público 
 - Bcrypt
 - Jsonwebtoken
 - Docker
+- AWS
+- CI/CD
+
