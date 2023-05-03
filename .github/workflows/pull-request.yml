@@ -13,7 +13,7 @@ jobs:
           envkey_POSTGRES_USER: "postgres"
           envkey_POSTGRE S_PASSWORD: "root"
           envkey_POSTGRES_DB: "recyclable"
-          envkey_DATABASE_URL: "postgresql://postgres:root@db:5432/recyclable?schema=public"
+          envkey_DATABASE_URL: "postgresql://postgres:root@db:5432/recyclable"
           directory: Recyclable-BackEnd
           file_name: .env
         

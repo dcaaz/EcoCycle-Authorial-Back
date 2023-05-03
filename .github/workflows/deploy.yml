@@ -18,7 +18,6 @@ jobs:
           envkey_POSTGRES_PASSWORD: ${{secrets.POSTGRES_PASSWORD}}
           envkey_POSTGRES_DB: ${{secrets.POSTGRES_DB}}
           envkey_DATABASE_URL: ${{secrets.DATABASE_URL}}
-          directory: .
           file_name: .env
           fail_on_empty: true
       - name: Build
