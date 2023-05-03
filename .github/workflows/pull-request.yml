@@ -14,6 +14,6 @@ jobs:
           envkey_POSTGRE S_PASSWORD: "root"
           envkey_POSTGRES_DB: "recyclable"
           envkey_DATABASE_URL: "postgresql://postgres:root@db:5432/recyclable"
-          directory: Recyclable-BackEnd
+          directory: .
           file_name: .env
         
